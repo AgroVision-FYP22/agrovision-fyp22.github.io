@@ -1,0 +1,43 @@
+---
+type Variant = "primary" | "ghost" | "dark";
+
+interface Props {
+  href?: string;
+  variant?: Variant;
+  class?: string;
+}
+
+const { href, variant = "primary", class: className = "" } = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 ease-out";
+
+const variants: Record<Variant, string> = {
+  primary:
+    "bg-lime-400 text-forest-900 hover:bg-lime-300 hover:-translate-y-0.5 shadow-sm",
+  ghost:
+    "border border-white/70 text-white hover:bg-white hover:text-forest-900",
+  dark:
+    "bg-forest-900 text-cream-50 hover:bg-forest-800 hover:-translate-y-0.5",
+};
+
+const Tag = href ? "a" : "button";
+---
+
+<Tag href={href} class={`${base} ${variants[variant]} ${className}`}>
+  <slot />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="size-4"
+    aria-hidden="true"
+  >
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+</Tag>

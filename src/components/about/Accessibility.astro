@@ -1,0 +1,43 @@
+---
+import { about } from "@/content/about";
+import SectionHeading from "@/components/SectionHeading.astro";
+import Icon from "@/components/Icon.astro";
+
+const { accessibility } = about;
+---
+
+<section id="accessibility" class="bg-cream-25 py-24 md:py-32">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={accessibility.eyebrow}
+      heading={accessibility.heading}
+      size="compact"
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2">
+      {accessibility.items.map((item) => (
+        <article
+          class="flex flex-col gap-4 rounded-3xl border border-ink-900/8 bg-white p-7 md:p-9"
+        >
+          <div class="grid size-12 place-items-center rounded-2xl bg-forest-900/[0.04] text-forest-700 ring-1 ring-forest-900/8">
+            <Icon name={item.iconKey} class="size-6" />
+          </div>
+          <h3 class="text-lg md:text-xl font-medium text-ink-900">
+            {item.title}
+          </h3>
+          <p class="text-base leading-relaxed text-ink-500">
+            {item.description}
+          </p>
+          <ul class="mt-1 space-y-2.5 border-t border-ink-900/8 pt-4">
+            {item.points.map((point) => (
+              <li class="flex items-start gap-3 text-sm leading-relaxed text-ink-500">
+                <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-forest-500" aria-hidden="true"></span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

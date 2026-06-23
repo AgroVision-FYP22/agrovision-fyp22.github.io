@@ -1,0 +1,57 @@
+---
+import { home } from "@/content/home";
+import Button from "@/components/Button.astro";
+
+const { hero } = home;
+---
+
+<section
+  class="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-forest-900"
+>
+  <div
+    class="absolute inset-0 -z-10 bg-cover bg-center"
+    style={`background-image: url('${hero.backgroundImage}');`}
+    aria-hidden="true"
+  ></div>
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-b from-forest-900/55 via-forest-900/35 to-forest-900/85"
+    aria-hidden="true"
+  ></div>
+
+  <div class="container-page relative z-10 flex flex-col items-center text-center text-white">
+    <span class="eyebrow text-lime-400/95">
+      <span class="inline-block h-px w-8 bg-lime-400/80"></span>
+      {hero.eyebrow}
+    </span>
+
+    <h1
+      class="mt-6 font-display font-medium leading-[0.95] tracking-tight text-white"
+      style="font-size: clamp(3rem, 9vw, 7rem);"
+    >
+      {hero.title}
+    </h1>
+
+    <p class="mt-7 max-w-2xl text-base md:text-lg leading-relaxed text-white/85">
+      {hero.tagline}
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <Button href={hero.primaryCta.href} variant="primary">
+        {hero.primaryCta.label}
+      </Button>
+      <Button href={hero.secondaryCta.href} variant="ghost">
+        {hero.secondaryCta.label}
+      </Button>
+    </div>
+  </div>
+
+  <a
+    href="#impact"
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 grid size-12 place-items-center rounded-full bg-forest-700 text-white shadow-lg ring-1 ring-white/15 transition-transform hover:translate-y-1"
+    aria-label="Scroll to next section"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </a>
+</section>

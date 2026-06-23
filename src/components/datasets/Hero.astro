@@ -1,0 +1,23 @@
+---
+import { datasets } from "@/content/datasets";
+
+const { hero } = datasets;
+---
+
+<section class="relative bg-forest-900 pt-40 pb-24 md:pt-48 md:pb-32 text-cream-50">
+  <div class="container-page">
+    <span class="eyebrow text-lime-400">
+      <span class="inline-block h-px w-8 bg-lime-400/80"></span>
+      {hero.eyebrow}
+    </span>
+    <h1
+      class="mt-5 max-w-3xl font-display font-medium leading-[1.05] tracking-tight text-cream-50"
+      style="font-size: clamp(2.25rem, 5.5vw, 4rem);"
+    >
+      {hero.title}
+    </h1>
+    <p class="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-cream-100/80">
+      {hero.intro}
+    </p>
+  </div>
+</section>

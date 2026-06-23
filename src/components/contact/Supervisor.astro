@@ -1,0 +1,23 @@
+---
+import { contact } from "@/content/contact";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ContactPersonCard from "./ContactPersonCard.astro";
+
+const { supervisor } = contact;
+---
+
+<section id="supervisor" class="bg-cream-50 pt-24 md:pt-32 pb-10">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={supervisor.eyebrow}
+      heading={""}
+      subheading={""}
+    />
+
+    <div class="mt-10 grid gap-10 grid-cols-3">
+      <div class="col-span-2">
+        <ContactPersonCard person={supervisor.person} />
+      </div>
+    </div>
+  </div>
+</section>

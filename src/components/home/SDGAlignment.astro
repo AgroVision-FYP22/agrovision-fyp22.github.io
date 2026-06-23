@@ -1,0 +1,38 @@
+---
+import { home } from "@/content/home";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const { sdg } = home;
+---
+
+<section id="sdg" class="bg-cream-25 py-24 md:py-32">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={sdg.eyebrow}
+      heading={sdg.heading}
+      subheading={sdg.subheading}
+    />
+
+    <div class="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {sdg.items.map((goal) => (
+        <article class="flex flex-col gap-5">
+          <img
+            src={goal.image}
+            alt={`UN Sustainable Development Goal ${parseInt(goal.number, 10)}: ${goal.title}`}
+            loading="lazy"
+            width="466"
+            height="466"
+            class="aspect-square w-full rounded-2xl object-cover shadow-[0_18px_50px_-25px_rgba(15,58,46,0.35)]"
+          />
+          <p class="text-sm md:text-base leading-relaxed text-ink-500">
+            {goal.contribution}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <p class="mt-12 text-xs text-ink-500/70">
+      SDG icons © United Nations. Used in accordance with the UN guidelines for the use of the SDG logo and the 17 Sustainable Development Goals icons.
+    </p>
+  </div>
+</section>

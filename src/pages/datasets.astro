@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/datasets/Hero.astro";
+import CategoryBlock from "@/components/datasets/CategoryBlock.astro";
+import { datasets } from "@/content/datasets";
+---
+
+<BaseLayout title="Datasets">
+  <Hero />
+  <section id="problem" class="bg-cream-50 py-24 md:py-32">
+    {datasets.categories.map((category) => (
+      <CategoryBlock category={category} />
+    ))}
+  </section>
+</BaseLayout>

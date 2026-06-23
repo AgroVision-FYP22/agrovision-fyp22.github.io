@@ -1,0 +1,28 @@
+---
+import type { DatasetCategory } from "@/content/datasets";
+import SectionHeading from "@/components/SectionHeading.astro";
+import DatasetCard from "@/components/datasets/DatasetCard.astro";
+
+interface Props {
+  category: DatasetCategory;
+}
+
+const { category } = Astro.props;
+---
+
+<section id={category.id} class="bg-cream-50 py-10 md:py-10">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={`${category.items.length} ${category.items.length === 1 ? "source" : "sources"}`}
+      heading={category.label}
+      subheading={category.blurb}
+      size="compact"
+    />
+
+    <div class="mt-10 space-y-3">
+      {category.items.map((item) => (
+        <DatasetCard item={item} />
+      ))}
+    </div>
+  </div>
+</section>

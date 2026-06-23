@@ -1,0 +1,140 @@
+---
+import { site } from "@/content/site";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  id="site-header"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+  data-transparent="true"
+>
+  <div class="container-page flex items-center justify-between py-5 md:py-6">
+    <a href="/" class="flex items-center gap-2.5 font-display text-xl tracking-tight">
+      
+        <img src="/images/logo/agrovision-logo.png" alt="" class="size-9" />
+      <span class="nav-brand font-medium">{site.brand}</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-1">
+      {site.nav.map((link) => {
+        const isActive =
+          link.href === "/"
+            ? currentPath === "/"
+            : currentPath.startsWith(link.href);
+        return (
+          <a
+            href={link.href}
+            class={`nav-link rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              isActive ? "active-link" : ""
+            }`}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <a
+      href={site.cta.href}
+      class="hidden md:inline-flex items-center gap-2 rounded-full bg-lime-400 px-5 py-2.5 text-sm font-semibold text-forest-900 transition-all hover:bg-lime-300 hover:-translate-y-0.5 shadow-sm"
+    >
+      {site.cta.label}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="12 5 19 12 12 19"/>
+      </svg>
+    </a>
+
+    <details class="md:hidden mobile-menu">
+      <summary
+        class="grid size-10 place-items-center rounded-full bg-white/90 text-forest-900 backdrop-blur cursor-pointer list-none [&::-webkit-details-marker]:hidden"
+        aria-label="Toggle navigation menu"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 menu-icon">
+          <line x1="4" y1="7" x2="20" y2="7"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 close-icon hidden">
+          <line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="6" y1="18" x2="18" y2="6"/>
+        </svg>
+      </summary>
+      <div class="absolute inset-x-0 top-full mt-2 mx-4 rounded-3xl bg-cream-25 p-6 shadow-xl ring-1 ring-ink-900/5">
+        <nav class="flex flex-col gap-1">
+          {site.nav.map((link) => (
+            <a
+              href={link.href}
+              class="rounded-2xl px-4 py-3 text-base font-medium text-ink-900 hover:bg-cream-100"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href={site.cta.href}
+            class="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-lime-400 px-5 py-3 text-sm font-semibold text-forest-900"
+          >
+            {site.cta.label}
+          </a>
+        </nav>
+      </div>
+    </details>
+  </div>
+</header>
+
+<style>
+  #site-header[data-transparent="true"] .nav-link {
+    color: rgb(255 255 255 / 0.9);
+  }
+  #site-header[data-transparent="true"] .nav-link:hover {
+    background: rgb(255 255 255 / 0.12);
+  }
+  #site-header[data-transparent="true"] .nav-link.active-link {
+    background: rgb(255 255 255 / 0.18);
+    color: white;
+  }
+  #site-header[data-transparent="true"] .nav-brand {
+    color: white;
+  }
+
+  #site-header[data-transparent="false"] {
+    background: rgb(247 245 239 / 0.85);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+    box-shadow: 0 1px 0 rgb(13 26 20 / 0.06);
+  }
+  #site-header[data-transparent="false"] .nav-link {
+    color: var(--color-ink-700);
+  }
+  #site-header[data-transparent="false"] .nav-link:hover {
+    background: rgb(13 26 20 / 0.05);
+  }
+  #site-header[data-transparent="false"] .nav-link.active-link {
+    background: var(--color-forest-900);
+    color: white;
+  }
+  #site-header[data-transparent="false"] .nav-brand {
+    color: var(--color-ink-900);
+  }
+
+  details.mobile-menu[open] .menu-icon {
+    display: none;
+  }
+  details.mobile-menu[open] .close-icon {
+    display: block;
+  }
+</style>
+
+<script>
+  const header = document.getElementById("site-header");
+  if (header) {
+    const update = () => {
+      const scrolled = window.scrollY > 24;
+      header.dataset.transparent = scrolled ? "false" : "true";
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
+</script>

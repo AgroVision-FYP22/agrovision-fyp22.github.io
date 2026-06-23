@@ -1,0 +1,51 @@
+---
+import { about } from "@/content/about";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const { stack } = about;
+---
+
+<section id="stack" class="bg-cream-50 py-24 md:py-32">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={stack.eyebrow}
+      heading={stack.heading}
+      subheading={stack.subheading}
+      size="compact"
+    />
+
+    <div class="mt-14 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      {stack.items.map((item) => (
+        <article
+          class="flex flex-col items-center gap-3 rounded-2xl border border-ink-900/8 bg-white p-5 text-center"
+        >
+          <span class="text-xs font-semibold uppercase tracking-[0.16em] text-forest-600">
+            {item.category}
+          </span>
+
+          {item.status === "confirmed" && item.logo ? (
+            <img
+              src={item.logo}
+              alt={item.name ?? item.category}
+              loading="lazy"
+              class="aspect-square w-16 object-contain"
+            />
+          ) : (
+            <div
+              class="flex aspect-square w-16 items-center justify-center rounded-xl border border-dashed border-ink-900/15 bg-cream-25 text-[0.65rem] font-medium uppercase tracking-wider text-ink-500/60"
+            >
+              Logo TBD
+            </div>
+          )}
+
+          <span class="text-sm font-medium text-ink-900">
+            {item.status === "confirmed" ? item.name : "—"}
+          </span>
+          <p class="text-xs leading-relaxed text-ink-500">
+            {item.role}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

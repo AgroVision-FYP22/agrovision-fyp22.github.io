@@ -1,0 +1,61 @@
+---
+import { home } from "@/content/home";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const { uniqueness } = home;
+---
+
+<section id="innovation" class="bg-forest-900 py-24 md:py-32 text-cream-50">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={uniqueness.eyebrow}
+      heading={uniqueness.heading}
+      tone="light"
+    />
+
+    <div class="mt-16 grid gap-8 md:grid-cols-2 md:gap-10">
+      <div class="rounded-3xl border border-cream-50/10 bg-forest-800/50 p-8 md:p-10">
+        <span class="eyebrow text-cream-100/60">
+          <span class="inline-block h-px w-6 bg-cream-100/40"></span>
+          {uniqueness.oldWay.label}
+        </span>
+        <h3 class="mt-4 text-2xl md:text-3xl font-medium text-cream-100/85">
+          {uniqueness.oldWay.title}
+        </h3>
+        <ul class="mt-7 space-y-4">
+          {uniqueness.oldWay.points.map((point) => (
+            <li class="flex items-start gap-3 text-cream-100/65">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 size-4 shrink-0 text-cream-100/40">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+              <span class="text-sm md:text-base leading-relaxed">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="relative rounded-3xl bg-cream-50 p-8 md:p-10 text-ink-900 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.55)]">
+        <span class="absolute -top-3 left-8 rounded-full bg-lime-400 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-forest-900">
+          Edge
+        </span>
+        <span class="eyebrow text-forest-600">
+          <span class="inline-block h-px w-6 bg-forest-600/60"></span>
+          {uniqueness.edge.label}
+        </span>
+        <h3 class="mt-4 text-2xl md:text-3xl font-medium text-ink-900">
+          {uniqueness.edge.title}
+        </h3>
+        <ul class="mt-7 space-y-4">
+          {uniqueness.edge.points.map((point) => (
+            <li class="flex items-start gap-3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-1 size-4 shrink-0 text-forest-500">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span class="text-sm md:text-base leading-relaxed text-ink-700">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

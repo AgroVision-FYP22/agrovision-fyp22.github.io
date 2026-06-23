@@ -1,0 +1,25 @@
+---
+import { contact } from "@/content/contact";
+import SectionHeading from "@/components/SectionHeading.astro";
+import ContactPersonCard from "./ContactPersonCard.astro";
+
+const { team } = contact;
+---
+
+<section id="team" class="bg-cream-50 py-24 md:py-10">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={team.eyebrow}
+      heading={""}
+      subheading={""}
+    />
+
+    <div class="mt-10 grid gap-10 grid-cols-2">
+      {team.members.map((member) => (
+        <div class="col-span-1">
+          <ContactPersonCard person={member} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

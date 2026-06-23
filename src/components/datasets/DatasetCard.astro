@@ -1,0 +1,103 @@
+---
+import type { DatasetItem } from "@/content/datasets";
+
+interface Props {
+  item: DatasetItem;
+}
+
+const { item } = Astro.props;
+---
+
+<details
+  class="group dataset-card overflow-hidden rounded-2xl border border-ink-900/8 bg-white transition-colors hover:border-forest-500/30"
+>
+  <summary
+    class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 [&::-webkit-details-marker]:hidden"
+  >
+    <div class="flex min-w-0 flex-1 items-center gap-4">
+      <h3 class="truncate text-base md:text-lg font-medium text-ink-900">
+        {item.name}
+      </h3>
+      {item.provider && (
+        <span class="hidden md:inline-block shrink-0 text-xs uppercase tracking-[0.14em] text-ink-500/70">
+          {item.provider}
+        </span>
+      )}
+    </div>
+    <svg
+      class="chevron size-5 shrink-0 text-ink-500 transition-transform duration-200"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </summary>
+
+  <div class="border-t border-ink-900/8 px-6 py-6 md:px-6 md:py-7">
+    {item.provider && (
+      <p class="mb-5 text-xs uppercase tracking-[0.14em] text-ink-500/70 md:hidden">
+        {item.provider}
+      </p>
+    )}
+
+    <div class="space-y-5">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-[0.16em] text-forest-600">
+          What it contains
+        </span>
+        <p class="mt-2 text-sm md:text-base leading-relaxed text-ink-700">
+          {item.description}
+        </p>
+      </div>
+
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-[0.16em] text-forest-600">
+          How AgroVision uses it
+        </span>
+        <p class="mt-2 text-sm md:text-base leading-relaxed text-ink-700">
+          {item.usage}
+        </p>
+      </div>
+
+      {item.meta && (
+        <div class="rounded-xl bg-cream-50 px-4 py-3 text-sm text-ink-500">
+          <span class="font-medium text-ink-700">Dataset:</span>{" "}
+          {item.meta}
+        </div>
+      )}
+    </div>
+
+    <a
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-6 inline-flex items-center gap-2 rounded-full bg-forest-900 px-5 py-2.5 text-sm font-medium text-cream-50 transition-colors hover:bg-forest-800"
+    >
+      View source
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="size-4"
+        aria-hidden="true"
+      >
+        <path d="M7 17L17 7"></path>
+        <path d="M8 7h9v9"></path>
+      </svg>
+    </a>
+  </div>
+</details>
+
+<style>
+  details.dataset-card[open] .chevron {
+    transform: rotate(180deg);
+  }
+</style>

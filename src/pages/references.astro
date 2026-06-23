@@ -1,0 +1,15 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/references/Hero.astro";
+import CategoryBlock from "@/components/references/CategoryBlock.astro";
+import { references } from "@/content/references";
+---
+
+<BaseLayout title="References">
+  <Hero />
+  <section class="bg-cream-50 py-24 md:py-32">
+    {references.categories.map((category) => (
+      <CategoryBlock category={category} />
+    ))}
+  </section>
+</BaseLayout>

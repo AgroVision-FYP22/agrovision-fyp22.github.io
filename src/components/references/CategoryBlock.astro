@@ -1,0 +1,38 @@
+---
+import type { PaperCategory } from "@/content/references";
+import SectionHeading from "@/components/SectionHeading.astro";
+import PaperCard from "@/components/references/PaperCard.astro";
+
+interface Props {
+  category: PaperCategory;
+}
+
+const { category } = Astro.props;
+const count = category.items.length;
+const eyebrow = count === 0 ? "Coming soon" : `${count} ${count === 1 ? "paper" : "papers"}`;
+---
+
+<section id={category.id} class="py-14 md:py-16">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={eyebrow}
+      heading={category.label}
+      subheading={category.blurb}
+      size="compact"
+    />
+
+    <div class="mt-10 space-y-3">
+      {count === 0 ? (
+        <div class="rounded-2xl border border-dashed border-ink-900/15 bg-white/60 px-6 py-10 text-center">
+          <p class="text-sm md:text-base text-ink-500">
+            Papers being curated — check back soon.
+          </p>
+        </div>
+      ) : (
+        category.items.map((item) => (
+          <PaperCard item={item} />
+        ))
+      )}
+    </div>
+  </div>
+</section>

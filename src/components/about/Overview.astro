@@ -1,0 +1,38 @@
+---
+import { about } from "@/content/about";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const { overview } = about;
+const cards = [overview.whatItIs, overview.whatItSolves];
+---
+
+<section id="overview" class="bg-cream-50 py-24 md:py-32">
+  <div class="container-page">
+    <SectionHeading
+      eyebrow={overview.eyebrow}
+      heading={overview.heading}
+      size="compact"
+    />
+
+    <div class="mt-14 grid gap-5 md:grid-cols-2">
+      {cards.map((card) => (
+        <article class="rounded-3xl border border-ink-900/8 bg-white p-7 md:p-9">
+          <span class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">
+            {card.label}
+          </span>
+          <p class="mt-4 text-base md:text-lg leading-relaxed text-ink-700">
+            {card.body}
+          </p>
+          <ul class="mt-6 space-y-2.5 border-t border-ink-900/8 pt-5">
+            {card.points.map((point) => (
+              <li class="flex items-start gap-3 text-sm leading-relaxed text-ink-500">
+                <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-forest-500" aria-hidden="true"></span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
