@@ -1,9 +1,10 @@
 export type AgentIconKey =
   | "disease"
+  | "pest"
   | "soil"
   | "weather"
-  | "orchestrator"
-  | "judge";
+  | "price"
+  | "planting";
 
 export type TrustIconKey =
   | "grounding"
@@ -15,6 +16,11 @@ export type AccessIconKey = "voice" | "lock";
 
 export type Agent = {
   iconKey: AgentIconKey;
+  name: string;
+  role: string;
+};
+
+export type OrchestratorModule = {
   name: string;
   role: string;
 };
@@ -88,58 +94,94 @@ export const about = {
     eyebrow: "System Architecture",
     heading: "A multi-agent system coordinated by an orchestrator.",
     subheading:
-      "Specialised agents handle one concern each. An orchestrator coordinates them, and a judge agent checks the final response before it reaches the user.",
-    diagramPlaceholder: {
-      label: "Architecture diagram in design",
-      note: "A detailed diagram will replace this placeholder once the system design is finalised.",
+      "Six specialised agents handle one concern each. An orchestrator routes requests, manages state, judges safety, and composes the final response.",
+    diagram: {
+      src: "/images/diagrams/agrovision-architecture.png",
+      alt: "AgroVision system architecture: users connect through a mobile and web frontend to a backend that hosts REST APIs, the community and heatmap services, and a RAG pipeline that reads from a vector database; an orchestrator with intent classifier, state manager, judge, and response synthesizer coordinates six specialised agents (Soil, Weather, Disease, Price, Pest, Planting) which talk to the Large Language Model.",
     },
-    agents: [
-      {
-        iconKey: "disease",
-        name: "Disease Agent",
-        role: "Identifies crop diseases from images using Visual Question Answering.",
-      },
-      {
-        iconKey: "soil",
-        name: "Soil Agent",
-        role: "Interprets soil context to tailor treatment to the field.",
-      },
-      {
-        iconKey: "weather",
-        name: "Weather Agent",
-        role: "Pulls live climate variables to ground recommendations in current conditions.",
-      },
-      {
-        iconKey: "orchestrator",
-        name: "Orchestrator",
-        role: "Coordinates the agents and runs the reasoning loop end to end.",
-      },
-      {
-        iconKey: "judge",
-        name: "Judge Agent",
-        role: "Final-stage gatekeeper that blocks harmful or unverified output.",
-      },
-    ] satisfies Agent[],
+    agents: {
+      eyebrow: "Specialised Agents",
+      items: [
+        {
+          iconKey: "disease",
+          name: "Disease Agent",
+          role: "Identifies crop diseases from leaf imagery via Visual Question Answering grounded in PlantVillageVQA.",
+        },
+        {
+          iconKey: "pest",
+          name: "Pest Agent",
+          role: "Identifies insect pests and damage signs, grounded in the IP-VQA dataset.",
+        },
+        {
+          iconKey: "soil",
+          name: "Soil Agent",
+          role: "Interprets local soil context for fertility and irrigation guidance.",
+        },
+        {
+          iconKey: "weather",
+          name: "Weather Agent",
+          role: "Pulls live climate variables to ground recommendations in current conditions.",
+        },
+        {
+          iconKey: "price",
+          name: "Price Agent",
+          role: "Surfaces commodity prices and trends so crop choice can factor in market value.",
+        },
+        {
+          iconKey: "planting",
+          name: "Planting Agent",
+          role: "Recommends crops and planting windows from water calendars and agro-met advisories.",
+        },
+      ] satisfies Agent[],
+    },
+    orchestrator: {
+      eyebrow: "Orchestrator",
+      title: "Four modules coordinate the agents end to end.",
+      modules: [
+        {
+          name: "Intent Classifier",
+          role: "Decides which specialised agents a question needs.",
+        },
+        {
+          name: "State Manager",
+          role: "Tracks the conversation state across the multi-agent loop.",
+        },
+        {
+          name: "Judge",
+          role: "Checks every response for harmful or unverified output before delivery.",
+        },
+        {
+          name: "Response Synthesizer",
+          role: "Composes the final user-facing answer from agent outputs.",
+        },
+      ] satisfies OrchestratorModule[],
+    },
     reasoningLoop: {
-      label: "How they work together",
+      label: "Request flow",
       steps: [
         {
           id: "01",
-          title: "Route",
+          title: "Classify",
           description:
-            "The Orchestrator receives a question and decides which specialised agents to engage.",
+            "Intent Classifier picks the specialised agents needed for the question.",
         },
         {
           id: "02",
           title: "Ground",
           description:
-            "Specialised agents gather evidence via Agentic RAG and live climate variables.",
+            "Specialised agents gather evidence via Agentic RAG and live data sources.",
         },
         {
           id: "03",
-          title: "Verify",
+          title: "Judge",
           description:
-            "The Judge Agent checks the final response for safety before it reaches the user.",
+            "Judge checks the draft response against safety and grounding rules.",
+        },
+        {
+          id: "04",
+          title: "Synthesize",
+          description:
+            "Response Synthesizer composes the final answer for the user.",
         },
       ] satisfies ReasoningStep[],
     },
@@ -147,21 +189,81 @@ export const about = {
 
   stack: {
     eyebrow: "Technology Stack",
-    heading: "The components that will power AgroVision.",
+    heading: "The stack that powers AgroVision.",
     subheading:
-      "The exact technology choices are not yet finalised. Brand logos and names will appear in each slot below once they are.",
+      "Each layer below names the technology AgroVision uses and what role it plays in the system.",
     items: [
-      { category: "App", role: "Cross-platform mobile experience.", status: "tbd" },
-      { category: "API", role: "Asynchronous request handling.", status: "tbd" },
-      { category: "Orchestration", role: "Multi-agent coordination.", status: "tbd" },
-      { category: "LLM", role: "Reasoning and response generation.", status: "tbd" },
-      { category: "Vector DB", role: "RAG retrieval over verified data.", status: "tbd" },
-      { category: "App DB", role: "Structured data and spatial mapping.", status: "tbd" },
-      { category: "Object Storage", role: "Reference image storage.", status: "tbd" },
-      { category: "Cloud", role: "Hosting and scaling.", status: "tbd" },
-      { category: "CI/CD", role: "Build and deploy automation.", status: "tbd" },
-      { category: "Observability", role: "Live metrics and alerting.", status: "tbd" },
-    ] satisfies StackItem[],
+      {
+        category: "App",
+        role: "Cross-platform mobile (and web) experience.",
+        status: "confirmed",
+        name: "Flutter",
+        logo: "/images/stack/flutter.svg",
+      },
+      {
+        category: "API",
+        role: "Asynchronous request handling.",
+        status: "confirmed",
+        name: "FastAPI",
+        logo: "/images/stack/fastapi.svg",
+      },
+      {
+        category: "Orchestration",
+        role: "Stateful multi-agent coordination.",
+        status: "confirmed",
+        name: "LangGraph",
+        logo: "/images/stack/langgraph.svg",
+      },
+      {
+        category: "LLM",
+        role: "Reasoning and response generation.",
+        status: "confirmed",
+        name: "Gemini",
+        logo: "/images/stack/gemini.svg",
+      },
+      {
+        category: "Vector DB",
+        role: "RAG retrieval over verified data.",
+        status: "confirmed",
+        name: "Qdrant",
+        logo: "/images/stack/qdrant.svg",
+      },
+      {
+        category: "App DB",
+        role: "Structured data and spatial mapping.",
+        status: "confirmed",
+        name: "Supabase (Postgres)",
+        logo: "/images/stack/supabase.svg",
+      },
+      {
+        category: "Object Storage",
+        role: "Reference image storage.",
+        status: "confirmed",
+        name: "AWS S3",
+        logo: "/images/stack/aws-s3.svg",
+      },
+      {
+        category: "Cloud",
+        role: "Hosting and scaling.",
+        status: "confirmed",
+        name: "AWS",
+        logo: "/images/stack/aws.svg",
+      },
+      {
+        category: "CI/CD",
+        role: "Build and deploy automation.",
+        status: "confirmed",
+        name: "GitHub",
+        logo: "/images/stack/github.svg",
+      },
+      {
+        category: "Observability",
+        role: "Live metrics and alerting.",
+        status: "confirmed",
+        name: "Signoz",
+        logo: "/images/stack/signoz.svg",
+      },
+    ] as StackItem[],
   },
 
   trust: {

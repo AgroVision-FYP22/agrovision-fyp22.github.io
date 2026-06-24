@@ -28,7 +28,7 @@ const baseAttrs = {
   "stroke-width": "1.7",
   "stroke-linecap": "round" as const,
   "stroke-linejoin": "round" as const,
-  "aria-hidden": "true",
+  "aria-hidden": true,
 };
 ---
 
@@ -194,5 +194,33 @@ const baseAttrs = {
     <path d="M12 7v3" />
     <path d="M10.5 13.5l-4 4" />
     <path d="M13.5 13.5l4 4" />
+  </svg>
+)}
+
+{name === "pest" && (
+  <svg {...baseAttrs} class={className}>
+    <ellipse cx="12" cy="13" rx="5" ry="6" />
+    <path d="M12 7V5" />
+    <path d="M10 5L8 3M14 5l2-2" />
+    <path d="M7 11l-3-1M17 11l3-1" />
+    <path d="M7 14H4M17 14h3" />
+    <path d="M8 17l-3 2M16 17l3 2" />
+  </svg>
+)}
+
+{name === "price" && (
+  <svg {...baseAttrs} class={className}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M14.5 9h-3a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-3.5" />
+    <path d="M12 6.5V9M12 17v2.5" />
+  </svg>
+)}
+
+{name === "planting" && (
+  <svg {...baseAttrs} class={className}>
+    <path d="M12 22V11" />
+    <path d="M12 11C8 10 7 7 7 4c3 0 5 2 5 7z" />
+    <path d="M12 11c4-1 5-4 5-7-3 0-5 2-5 7z" />
+    <path d="M5 19h14" />
   </svg>
 )}

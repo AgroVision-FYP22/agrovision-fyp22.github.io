@@ -55,7 +55,7 @@ export const home = {
       "Diagnose crops, plan seasons, and catch outbreaks early — an AI agronomist built for Sri Lankan farmers.",
     primaryCta: { label: "Explore", href: "#problem" },
     secondaryCta: { label: "Our System", href: "/about" },
-    backgroundImage: "/images/hero-bg.jpg",
+    backgroundImage: "/images/hero-bg.webp",
   },
 
   problem: {
@@ -217,6 +217,13 @@ export const home = {
         image: "/images/sdg/E_SDG_Icons-02.jpg",
         contribution:
           "Boost yields and reduce post-harvest losses so more food reaches the table.",
+      },
+      {
+        number: "06",
+        title: "Clean Water & Sanitation",
+        image: "/images/sdg/E_SDG_Icons-06.jpg",
+        contribution:
+          "Inform irrigation decisions with live water release calendars so clean water is used sparingly.",
       },
       {
         number: "12",

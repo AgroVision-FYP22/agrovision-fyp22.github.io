@@ -15,39 +15,62 @@ const { architecture } = about;
       size="compact"
     />
 
-    <div
-      class="mt-14 flex aspect-[16/9] w-full flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed border-ink-900/15 bg-white/60 p-8 text-center"
-    >
-      <div class="grid size-16 place-items-center rounded-full bg-forest-900/[0.04] text-forest-700 ring-1 ring-forest-900/8">
-        <Icon name="network" class="size-7" />
-      </div>
-      <p class="font-display text-xl md:text-2xl text-ink-700">
-        {architecture.diagramPlaceholder.label}
-      </p>
-      <p class="max-w-md text-sm text-ink-500 leading-relaxed">
-        {architecture.diagramPlaceholder.note}
-      </p>
-    </div>
-
-    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-      {architecture.agents.map((agent) => (
-        <article
-          class="flex flex-col gap-3 rounded-2xl border border-ink-900/8 bg-white p-5"
-        >
-          <div class="grid size-10 place-items-center rounded-xl bg-forest-900/[0.04] text-forest-700 ring-1 ring-forest-900/8">
-            <Icon name={agent.iconKey} class="size-5" />
-          </div>
-          <h3 class="text-base font-medium text-ink-900">{agent.name}</h3>
-          <p class="text-sm leading-relaxed text-ink-500">{agent.role}</p>
-        </article>
-      ))}
-    </div>
+    <img
+      src={architecture.diagram.src}
+      alt={architecture.diagram.alt}
+      loading="lazy"
+      class="mt-14 w-full rounded-3xl border border-ink-900/8 bg-white shadow-[0_1px_0_rgba(15,23,42,0.02)]"
+    />
 
     <div class="mt-14">
       <span class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">
+        {architecture.agents.eyebrow}
+      </span>
+
+      <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {architecture.agents.items.map((agent) => (
+          <article
+            class="flex flex-col gap-3 rounded-2xl border border-ink-900/8 bg-white p-5 md:p-6"
+          >
+            <div class="grid size-10 place-items-center rounded-xl bg-forest-900/[0.04] text-forest-700 ring-1 ring-forest-900/8">
+              <Icon name={agent.iconKey} class="size-5" />
+            </div>
+            <h3 class="text-base font-medium text-ink-900">{agent.name}</h3>
+            <p class="text-sm leading-relaxed text-ink-500">{agent.role}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <span class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">
+        {architecture.orchestrator.eyebrow}
+      </span>
+
+      <article class="mt-5 rounded-3xl border border-ink-900/8 bg-white p-7 md:p-9">
+        <h3 class="font-display text-xl md:text-2xl font-medium leading-tight text-ink-900">
+          {architecture.orchestrator.title}
+        </h3>
+
+        <dl class="mt-6 grid gap-5 border-t border-ink-900/8 pt-6 sm:grid-cols-2">
+          {architecture.orchestrator.modules.map((mod) => (
+            <div class="flex items-start gap-3">
+              <span class="mt-1.5 size-2 shrink-0 rounded-full bg-lime-400 ring-2 ring-lime-400/30" aria-hidden="true"></span>
+              <div>
+                <dt class="text-sm font-medium text-ink-900">{mod.name}</dt>
+                <dd class="mt-1 text-sm leading-relaxed text-ink-500">{mod.role}</dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+      </article>
+    </div>
+
+    <div class="mt-12">
+      <span class="text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">
         {architecture.reasoningLoop.label}
       </span>
-      <div class="mt-5 grid gap-4 md:grid-cols-3">
+      <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {architecture.reasoningLoop.steps.map((step) => (
           <article class="flex gap-5 rounded-2xl border border-ink-900/8 bg-white p-5 md:p-6">
             <span class="font-display text-3xl font-medium text-lime-500 leading-none">

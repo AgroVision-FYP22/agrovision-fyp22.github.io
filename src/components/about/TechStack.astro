@@ -30,6 +30,12 @@ const { stack } = about;
               loading="lazy"
               class="aspect-square w-16 object-contain"
             />
+          ) : item.status === "confirmed" ? (
+            <div
+              class="flex aspect-square w-16 items-center justify-center rounded-xl bg-forest-900 px-2 text-center text-[0.7rem] font-semibold leading-tight text-lime-400"
+            >
+              {item.name}
+            </div>
           ) : (
             <div
               class="flex aspect-square w-16 items-center justify-center rounded-xl border border-dashed border-ink-900/15 bg-cream-25 text-[0.65rem] font-medium uppercase tracking-wider text-ink-500/60"

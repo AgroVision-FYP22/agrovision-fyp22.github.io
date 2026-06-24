@@ -13,7 +13,14 @@ const { problem } = home;
       subheading={problem.subheading}
     />
 
-    <div class="mt-16 grid gap-4 md:grid-cols-2">
+    <img
+      src="/images/home/problem.png"
+      alt="A farmer standing alone in a paddy field, looking worried at struggling crops surrounded by storm clouds, a pest, and a generic SMS notification — illustrating the disconnected, uncertain reality of farming today."
+      loading="lazy"
+      class="mx-auto mt-14 block w-full max-w-4xl rounded-3xl"
+    />
+
+    <div class="mt-12 grid gap-4 md:grid-cols-2">
       {problem.items.map((item) => (
         <article
           class="flex gap-5 rounded-3xl border border-ink-900/8 bg-white p-7 md:p-8"

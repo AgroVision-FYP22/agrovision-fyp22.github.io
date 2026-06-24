@@ -9,7 +9,14 @@ const { impact } = home;
   <div class="container-page">
     <SectionHeading eyebrow={impact.eyebrow} heading={impact.heading} />
 
-    <div class="mt-16 grid gap-12 md:grid-cols-3 md:gap-10">
+    <img
+      src="/images/home/solution.png"
+      alt="The same farmer now standing confidently with a smartphone, surrounded by thriving crops and a connected network of weather, soil, and plant-health icons — illustrating life with AgroVision supporting every decision."
+      loading="lazy"
+      class="mx-auto mt-14 block w-full max-w-4xl rounded-3xl"
+    />
+
+    <div class="mt-12 grid gap-12 md:grid-cols-3 md:gap-10">
       {impact.items.map((item, i) => (
         <div class="group relative">
           {i > 0 && (
