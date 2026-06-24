@@ -32,10 +32,10 @@ export const contact = {
         image: "/images/team/pulindu-ranaweera.webp",
       },
       {
-        name: "Randeepa Appuhamy",
+        name: "Randeepa Appuhami",
         designation: "Team Member",
         email: "randeepa.22@cse.mrt.ac.lk",
-        image: "/images/team/randeepa-appuhamy.webp",
+        image: "/images/team/randeepa-appuhami.webp",
       },
       {
         name: "Vihanga Munasinghe",
