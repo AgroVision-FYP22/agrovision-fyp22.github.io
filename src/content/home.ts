@@ -54,7 +54,7 @@ export const home = {
     tagline:
       "Diagnose crops, plan seasons, and catch outbreaks early — an AI agronomist built for Sri Lankan farmers.",
     primaryCta: { label: "Explore", href: "#problem" },
-    secondaryCta: { label: "Our System", href: "/about" },
+    secondaryCta: { label: "About Our System", href: "/about" },
     backgroundImage: "/images/hero-bg.webp",
   },
 

@@ -38,8 +38,7 @@ export const site = {
       {
         heading: "Resources",
         links: [
-          { label: "Documentation", href: "#" },
-          { label: "Contact", href: "#contact" },
+          { label: "Contact", href: "/contact" },
         ],
       },
     ],
