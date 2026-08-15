@@ -116,6 +116,12 @@ export const home = {
     ] satisfies ImpactMetric[],
   },
 
+  introVideo: {
+    eyebrow: "Intro Video",
+    heading: "Watch what Croptimum is",
+    videoLink: "https://www.youtube.com/embed/-xx-DZzAIlU",
+  },
+
   features: {
     eyebrow: "What It Does",
     heading: "Four modules. One coordinated agricultural mind.",

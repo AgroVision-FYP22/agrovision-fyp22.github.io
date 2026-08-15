@@ -1,0 +1,18 @@
+---
+import { home } from "@/content/home";
+import SectionHeading from "@/components/SectionHeading.astro";
+
+const { introVideo } = home;
+---
+
+<section id="introVideo" class="bg-cream-50 py-24 md:py-32">
+  <div class="container-page">
+    <SectionHeading eyebrow={introVideo.eyebrow} heading={introVideo.heading} />
+
+    <iframe 
+      src={introVideo.videoLink}
+      class="mx-auto mt-14 block w-full max-w-4xl aspect-video rounded-3xl"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
