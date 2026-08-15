@@ -92,7 +92,7 @@ export const about = {
     subheading:
       "Six specialised agents handle one concern each. An orchestrator routes requests, manages state, judges safety, and composes the final response.",
     diagram: {
-      src: "/images/diagrams/agrovision-architecture.png",
+      src: "/images/diagrams/croptimum-architecture.png",
       alt: "Croptimum system architecture: users connect through a mobile and web frontend to a backend that hosts REST APIs, the community and heatmap services, and a RAG pipeline that reads from a vector database; an orchestrator with intent classifier, state manager, judge, and response synthesizer coordinates six specialised agents (Soil, Weather, Disease, Price, Pest, Planting) which talk to the Large Language Model.",
     },
     agents: {
