@@ -1,14 +1,6 @@
-export type FeatureIconKey =
-  | "assistant"
-  | "calculator"
-  | "map"
-  | "users";
+export type FeatureIconKey = "assistant" | "calculator" | "map" | "users";
 
-export type RoleIconKey =
-  | "farmer"
-  | "agronomist"
-  | "officer"
-  | "researcher";
+export type RoleIconKey = "farmer" | "agronomist" | "officer" | "researcher";
 
 export type ImpactMetric = {
   id: string;
@@ -50,7 +42,7 @@ export type SDG = {
 export const home = {
   hero: {
     eyebrow: "Climate-Resilient Agriculture",
-    title: "AgroVision",
+    title: "Croptimum",
     tagline:
       "Diagnose crops, plan seasons, and catch outbreaks early — an AI agronomist built for Sri Lankan farmers.",
     primaryCta: { label: "Explore", href: "#problem" },
@@ -93,7 +85,7 @@ export const home = {
 
   impact: {
     eyebrow: "Why It Matters",
-    heading: "What AgroVision changes.",
+    heading: "What Croptimum changes.",
     items: [
       {
         id: "01",
@@ -201,7 +193,7 @@ export const home = {
       ],
     } satisfies ComparisonColumn,
     edge: {
-      label: "The AgroVision Edge",
+      label: "The Croptimum Edge",
       title: "Context-aware, agentic, climate-coupled.",
       points: [
         "A multi-agent system that reasons like an agronomist.",
@@ -215,7 +207,7 @@ export const home = {
     eyebrow: "Sustainability Alignment",
     heading: "Built to advance the UN Sustainable Development Goals.",
     subheading:
-      "Every feature in AgroVision maps directly to a global goal for sustainable, equitable agriculture.",
+      "Every feature in Croptimum maps directly to a global goal for sustainable, equitable agriculture.",
     items: [
       {
         number: "02",

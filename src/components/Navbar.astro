@@ -12,8 +12,8 @@ const currentPath = Astro.url.pathname;
   <div class="container-page flex items-center justify-between py-5 md:py-6">
     <a href="/" class="flex items-center gap-2.5 font-display text-xl tracking-tight">
       
-        <img src="/images/logo/agrovision-logo.png" alt="" class="size-9" />
-      <span class="nav-brand font-medium">{site.brand}</span>
+        <img src="/images/logo/croptimum-logo-white.png" alt="" class="h-10 logo-light" />
+        <img src="/images/logo/croptimum-logo-black.png" alt="" class="h-10 logo-dark hidden" />
     </a>
 
     <nav class="hidden md:flex items-center gap-1">
@@ -98,6 +98,12 @@ const currentPath = Astro.url.pathname;
   #site-header[data-transparent="true"] .nav-brand {
     color: white;
   }
+  #site-header[data-transparent="true"] .logo-light {
+    display: block;
+  }
+  #site-header[data-transparent="true"] .logo-dark {
+    display: none;
+  }
 
   #site-header[data-transparent="false"] {
     background: rgb(247 245 239 / 0.85);
@@ -117,6 +123,12 @@ const currentPath = Astro.url.pathname;
   }
   #site-header[data-transparent="false"] .nav-brand {
     color: var(--color-ink-900);
+  }
+  #site-header[data-transparent="false"] .logo-light {
+    display: none;
+  }
+  #site-header[data-transparent="false"] .logo-dark {
+    display: block;
   }
 
   details.mobile-menu[open] .menu-icon {

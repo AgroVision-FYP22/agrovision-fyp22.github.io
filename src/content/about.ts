@@ -6,11 +6,7 @@ export type AgentIconKey =
   | "price"
   | "planting";
 
-export type TrustIconKey =
-  | "grounding"
-  | "judge"
-  | "metrics"
-  | "observability";
+export type TrustIconKey = "grounding" | "judge" | "metrics" | "observability";
 
 export type AccessIconKey = "voice" | "lock";
 
@@ -61,10 +57,10 @@ export type OverviewCard = {
 
 export const about = {
   hero: {
-    eyebrow: "About AgroVision",
-    title: "What AgroVision is, and how it works.",
+    eyebrow: "About Croptimum",
+    title: "What Croptimum is, and how it works.",
     intro:
-      "AgroVision is a digital farming assistant and AI-driven decision support system that takes the guesswork out of crop health management.",
+      "Croptimum is a digital farming assistant and AI-driven decision support system that takes the guesswork out of crop health management.",
   },
 
   overview: {
@@ -97,7 +93,7 @@ export const about = {
       "Six specialised agents handle one concern each. An orchestrator routes requests, manages state, judges safety, and composes the final response.",
     diagram: {
       src: "/images/diagrams/agrovision-architecture.png",
-      alt: "AgroVision system architecture: users connect through a mobile and web frontend to a backend that hosts REST APIs, the community and heatmap services, and a RAG pipeline that reads from a vector database; an orchestrator with intent classifier, state manager, judge, and response synthesizer coordinates six specialised agents (Soil, Weather, Disease, Price, Pest, Planting) which talk to the Large Language Model.",
+      alt: "Croptimum system architecture: users connect through a mobile and web frontend to a backend that hosts REST APIs, the community and heatmap services, and a RAG pipeline that reads from a vector database; an orchestrator with intent classifier, state manager, judge, and response synthesizer coordinates six specialised agents (Soil, Weather, Disease, Price, Pest, Planting) which talk to the Large Language Model.",
     },
     agents: {
       eyebrow: "Specialised Agents",
@@ -189,9 +185,9 @@ export const about = {
 
   stack: {
     eyebrow: "Technology Stack",
-    heading: "The stack that powers AgroVision.",
+    heading: "The stack that powers Croptimum.",
     subheading:
-      "Each layer below names the technology AgroVision uses and what role it plays in the system.",
+      "Each layer below names the technology Croptimum uses and what role it plays in the system.",
     items: [
       {
         category: "App",

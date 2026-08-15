@@ -4,11 +4,11 @@ export type NavLink = {
 };
 
 export const site = {
-  brand: "AgroVision",
+  brand: "Croptimum",
   tagline: "AI-powered decision support for climate-resilient agriculture.",
   url: "https://agrovision.lk",
   description:
-    "AgroVision is a Multi-Agent AI assistant that helps farmers and agricultural officers diagnose crop issues, plan seasons, and track regional outbreaks.",
+    "Croptimum is a Multi-Agent AI assistant that helps farmers and agricultural officers diagnose crop issues, plan seasons, and track regional outbreaks.",
 
   nav: [
     { label: "Home", href: "/" },
@@ -37,11 +37,9 @@ export const site = {
       },
       {
         heading: "Resources",
-        links: [
-          { label: "Contact", href: "/contact" },
-        ],
+        links: [{ label: "Contact", href: "/contact" }],
       },
     ],
-    copyright: "© 2026 AgroVision. All rights reserved.",
+    copyright: "© 2026 Croptimum. All rights reserved.",
   },
 } as const;

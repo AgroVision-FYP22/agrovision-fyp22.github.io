@@ -18,9 +18,9 @@ export type DatasetCategory = {
 export const datasets = {
   hero: {
     eyebrow: "Datasets",
-    title: "The data behind AgroVision.",
+    title: "The data behind Croptimum.",
     intro:
-      "AgroVision is grounded in public and open datasets — for diagnosis, forecasting, soil context, and pricing. Each source is listed below by category.",
+      "Croptimum is grounded in public and open datasets — for diagnosis, forecasting, soil context, and pricing. Each source is listed below by category.",
   },
 
   categories: [
@@ -121,7 +121,8 @@ export const datasets = {
       items: [
         {
           name: "HARTI Daily Prices",
-          provider: "Hector Kobbekaduwa Agrarian Research and Training Institute",
+          provider:
+            "Hector Kobbekaduwa Agrarian Research and Training Institute",
           description:
             "Daily wholesale and retail prices for agricultural commodities across Sri Lanka, published by HARTI.",
           usage:
