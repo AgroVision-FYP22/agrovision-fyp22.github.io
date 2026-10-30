@@ -16,7 +16,7 @@ The controller of your personal data is **Croptimum**
 ("we", "us"). Contact us about anything in this policy, or to use your rights:
 
 - Email: [vihangamunasinghe.22@cse.mrt.ac.lk](mailto:vihangamunasinghe.22@cse.mrt.ac.lk)
-- Data protection contact: Croptimum
+- Data protection contact: Croptimum privacy team
 
 ## 2. What we collect, and why
 
