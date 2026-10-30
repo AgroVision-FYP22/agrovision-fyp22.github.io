@@ -39,6 +39,14 @@ export const site = {
         heading: "Resources",
         links: [{ label: "Contact", href: "/contact" }],
       },
+      {
+        heading: "Legal",
+        links: [
+          { label: "Privacy Policy", href: "/privacy" },
+          { label: "Terms of Use", href: "/terms" },
+          { label: "Delete your account", href: "/delete-account" },
+        ],
+      },
     ],
     copyright: "© 2026 Croptimum. All rights reserved.",
   },

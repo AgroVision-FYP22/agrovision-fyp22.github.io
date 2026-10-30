@@ -1,0 +1,60 @@
+---
+import type { MarkdownHeading } from "astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/legal/Hero.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    eyebrow: string;
+    intro: string;
+    updated: string;
+    version?: string;
+  };
+  headings: MarkdownHeading[];
+  raw: string;
+}
+
+const { frontmatter, headings, raw } = Astro.props;
+
+// Pushing to main deploys, so an unfinished legal page must fail the build.
+if (import.meta.env.PROD && (raw.includes("CONFIRM") || frontmatter.updated.includes("CONFIRM"))) {
+  throw new Error(`"${frontmatter.title}" still has ⚠ CONFIRM placeholders. Fill them in first.`);
+}
+
+const sections = headings.filter((heading) => heading.depth === 2);
+---
+
+<BaseLayout title={frontmatter.title} description={frontmatter.intro}>
+  <Hero
+    eyebrow={frontmatter.eyebrow}
+    title={frontmatter.title}
+    intro={frontmatter.intro}
+    updated={frontmatter.updated}
+    version={frontmatter.version}
+  />
+  <section class="bg-cream-50 py-24 md:py-32">
+    <div class="container-page grid gap-12 lg:grid-cols-[14rem_minmax(0,1fr)]">
+      <nav aria-label="On this page" class="hidden lg:block">
+        <div class="sticky top-28">
+          <span class="eyebrow">On this page</span>
+          <ul class="mt-5 space-y-3">
+            {sections.map((section) => (
+              <li>
+                <a
+                  href={`#${section.slug}`}
+                  class="text-sm text-ink-500 transition-colors hover:text-forest-700"
+                >
+                  {section.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+      <article class="legal-prose min-w-0 max-w-3xl">
+        <slot />
+      </article>
+    </div>
+  </section>
+</BaseLayout>

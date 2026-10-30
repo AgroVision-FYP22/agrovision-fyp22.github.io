@@ -1,0 +1,8 @@
+---
+import LegalLayout from "@/layouts/LegalLayout.astro";
+import { Content, frontmatter, getHeadings, rawContent } from "@/legal/terms.md";
+---
+
+<LegalLayout frontmatter={frontmatter} headings={getHeadings()} raw={rawContent()}>
+  <Content />
+</LegalLayout>
