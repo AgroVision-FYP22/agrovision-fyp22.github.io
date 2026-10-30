@@ -13,7 +13,7 @@ or older.
 
 Croptimum gives farming information (an AI assistant, weather, market prices, government
 notices), a community forum, and listings for sharing equipment and selling farm inputs.
-It is provided by **Vihanga Munasinghe** ("we").
+It is provided by **Croptimum** ("we").
 
 ## 2. Advice is guidance, not a guarantee
 
