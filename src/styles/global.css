@@ -69,3 +69,93 @@
   text-transform: uppercase;
   color: var(--color-forest-600);
 }
+
+@layer components {
+  .legal-prose {
+    color: var(--color-ink-700);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .legal-prose > :first-child {
+    margin-top: 0;
+  }
+
+  .legal-prose h2 {
+    margin-top: 3.5rem;
+    scroll-margin-top: 7rem;
+    color: var(--color-ink-900);
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .legal-prose p,
+  .legal-prose ul,
+  .legal-prose ol {
+    margin-top: 1.25rem;
+  }
+
+  .legal-prose ul,
+  .legal-prose ol {
+    padding-left: 1.25rem;
+  }
+
+  .legal-prose ul {
+    list-style: disc;
+  }
+
+  .legal-prose ol {
+    list-style: decimal;
+  }
+
+  .legal-prose li {
+    margin-top: 0.5rem;
+    padding-left: 0.25rem;
+  }
+
+  .legal-prose li::marker {
+    color: var(--color-forest-500);
+  }
+
+  .legal-prose strong {
+    color: var(--color-ink-900);
+    font-weight: 600;
+  }
+
+  .legal-prose a {
+    color: var(--color-forest-600);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+  }
+
+  .legal-prose a:hover {
+    color: var(--color-forest-700);
+  }
+
+  /* Wide tables scroll inside themselves, so a phone never scrolls sideways. */
+  .legal-prose table {
+    display: block;
+    margin-top: 1.5rem;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .legal-prose th {
+    padding: 0.75rem 1.25rem 0.75rem 0;
+    border-bottom: 1px solid var(--color-ink-300);
+    color: var(--color-ink-900);
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .legal-prose td {
+    min-width: 11rem;
+    padding: 0.875rem 1.25rem 0.875rem 0;
+    border-bottom: 1px solid var(--color-cream-100);
+    vertical-align: top;
+  }
+}
