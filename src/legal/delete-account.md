@@ -2,7 +2,7 @@
 title: "Delete your account"
 eyebrow: "Account deletion"
 intro: "How to delete your Croptimum account and data, what is removed and what may remain."
-updated: "⚠ CONFIRM date"
+updated: "30 October 2026"
 ---
 
 You can delete your Croptimum account and everything you created in it.
@@ -34,7 +34,6 @@ your account within **30 days** (usually much sooner).
 
 ## What may remain
 
-- **Backups**: deleted data stays in our encrypted backups until they are replaced, ⚠ CONFIRM: backup retention (for example up to 35 days). It is not used for anything else and is not restored except after a disaster, in which case your deletion is repeated.
 - **Government notices you posted** (officers only) stay, without your name, because they are public notices.
 - Records we must keep by law, if any.
 - Anonymous, combined statistics (for example the number of reports in an area) that no longer identify you.

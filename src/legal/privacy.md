@@ -2,7 +2,7 @@
 title: "Privacy Policy"
 eyebrow: "Legal"
 intro: "What personal data Croptimum collects, why, who receives it, how long we keep it and what you can do about it."
-updated: "⚠ CONFIRM date"
+updated: "30 October 2026"
 version: "2026-11"
 ---
 
@@ -12,7 +12,7 @@ we collect, why, who receives it, how long we keep it and what you can do about 
 
 ## 1. Who we are
 
-The controller of your personal data is **Vihanga Munasinghe, ⚠ CONFIRM: postal address**
+The controller of your personal data is **Vihanga Munasinghe**
 ("we", "us"). Contact us about anything in this policy, or to use your rights:
 
 - Email: [vihangamunasinghe.22@cse.mrt.ac.lk](mailto:vihangamunasinghe.22@cse.mrt.ac.lk)
@@ -55,10 +55,10 @@ We use these service providers. They process data for us and only for these purp
 | Provider | What they get | Where |
 |---|---|---|
 | **Google Cloud (Cloud Run)** | Hosts our app servers, so all app data passes through them | Mumbai, India (asia-south1) |
-| **Supabase** | Stores the database (accounts, fields, chats, posts, listings) | ⚠ CONFIRM: region |
-| **Google (Gemini API)** | The text of your questions, photos you attach, and the field facts needed to answer (crop, location). Used to generate the assistant's replies. We use Gemini under paid terms, under which your content is not used to train Google's models | ⚠ CONFIRM: processing region |
-| **OpenAI (Whisper) ⚠ CONFIRM production setting** | Your voice recording, to turn it into text. The recording is not kept after transcription | ⚠ CONFIRM |
-| **Cloudinary** | Photos you upload (chat, posts, listings), served back through a link | ⚠ CONFIRM: region |
+| **Supabase** | Stores the database (accounts, fields, chats, posts, listings) | Mumbai, India |
+| **Google (Gemini API)** | The text of your questions, photos you attach, and the field facts needed to answer (crop, location). Used to generate the assistant's replies. We use Gemini under paid terms, under which your content is not used to train Google's models | Google's servers; the region is not fixed by us |
+| **Google (Gemini API)**, speech to text | Your voice recording, to turn it into text. The recording is not kept after transcription | Google's servers; the region is not fixed by us |
+| **Cloudinary** | Photos you upload (chat, posts, listings), served back through a link | Cloudinary's cloud storage; Cloudinary chooses the location |
 | **Open-Meteo** | The coordinates of the field you ask weather for (no name or account) | Europe |
 | **Google Maps** | Map tiles when you pick a field location; Google receives the map area you view | Global |
 
@@ -90,8 +90,8 @@ an answer is wrong or harmful, use "Report this answer" under it.
   its saved reasoning.
 - **Reports about content**: deleted 180 days after they are resolved (reports about assistant answers, 180 days after you filed them).
 - **Login sessions**: end after at most 180 days, or when you log out.
-- **Server logs**: ⚠ CONFIRM: retention period (for example 30 days).
-- **Backups**: ⚠ CONFIRM: backup retention (for example 35 days). Deleted data disappears from backups on that schedule.
+- **Server logs**: 30 days.
+- **Backups**: we do not keep separate backups of the database, so deleted data is gone as soon as it is deleted.
 
 ## 8. Security
 
@@ -110,7 +110,7 @@ You can, at any time:
   permanently removes your account, fields, chats, photos, posts, comments, votes,
   listings, reservations and reports, including the copies held by our providers
   (photos at Cloudinary, the assistant's conversation memory). Nothing is kept except
-  as described in section 7 (backups) or where the law requires. You can also follow the
+  where the law requires. You can also follow the
   [account deletion instructions](/delete-account) on the web.
 - **Block people** and **report content**: from any post or comment.
 - **Ask us** for a copy of your data, to object to some processing, or to restrict it,

@@ -2,7 +2,7 @@
 title: "Terms of Use"
 eyebrow: "Legal"
 intro: "The rules for using Croptimum, including what you may post and how advice should be used."
-updated: "⚠ CONFIRM date"
+updated: "30 October 2026"
 version: "2026-11"
 ---
 
