@@ -1,0 +1,54 @@
+---
+import Button from "@/components/Button.astro";
+import PlatformCard from "@/components/download/PlatformCard.astro";
+import { download, driveDownloadUrl, driveViewUrl } from "@/content/download";
+
+const { android, ios } = download;
+const meta = [
+  android.version && `Version ${android.version}`,
+  android.updated && `Updated ${android.updated}`,
+  android.requirements,
+].filter(Boolean);
+---
+
+<section class="bg-cream-50 py-20 md:py-28">
+  <div class="container-page grid gap-6 md:grid-cols-2">
+    <PlatformCard platform="android" title="Android">
+      <p class="max-w-sm text-sm leading-relaxed text-ink-500 md:text-base">
+        Download the latest APK and install it directly on your Android device.
+      </p>
+      <Button
+        href={driveDownloadUrl(android.driveFileId)}
+        icon="download"
+        rel="noopener"
+        class="mt-2"
+      >
+        Download Latest
+      </Button>
+      {meta.length > 0 && (
+        <p class="text-xs text-ink-500">{meta.join(" · ")}</p>
+      )}
+      <p class="max-w-sm text-xs leading-relaxed text-ink-500">
+        You may need to allow <span class="font-medium text-ink-700">Install unknown apps</span> for
+        your browser in Android settings.{" "}
+        <a
+          href={driveViewUrl(android.driveFileId)}
+          target="_blank"
+          rel="noopener"
+          class="underline decoration-ink-300 underline-offset-2 hover:text-forest-700"
+        >
+          Open in Google Drive
+        </a>
+      </p>
+    </PlatformCard>
+
+    <PlatformCard platform="ios" title="iOS" comingSoon>
+      <span class="eyebrow rounded-full bg-cream-100 px-4 py-2 text-ink-500">
+        Coming soon
+      </span>
+      <p class="max-w-sm text-sm leading-relaxed text-ink-500 md:text-base">
+        {ios.note}
+      </p>
+    </PlatformCard>
+  </div>
+</section>
