@@ -15,6 +15,7 @@ export const site = {
     { label: "About", href: "/about" },
     { label: "Datasets", href: "/datasets" },
     { label: "References", href: "/references" },
+    { label: "Download", href: "/download" },
   ] satisfies NavLink[],
 
   cta: {
@@ -33,6 +34,7 @@ export const site = {
           { label: "About", href: "/about" },
           { label: "Datasets", href: "/datasets" },
           { label: "References", href: "/references" },
+          { label: "Download", href: "/download" },
         ],
       },
       {

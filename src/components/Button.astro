@@ -1,13 +1,23 @@
 ---
-type Variant = "primary" | "ghost" | "dark";
+import type { HTMLAttributes } from "astro/types";
 
-interface Props {
+type Variant = "primary" | "ghost" | "dark";
+type ButtonIcon = "arrow" | "download";
+
+interface Props extends Omit<HTMLAttributes<"a">, "class"> {
   href?: string;
   variant?: Variant;
+  icon?: ButtonIcon;
   class?: string;
 }
 
-const { href, variant = "primary", class: className = "" } = Astro.props;
+const {
+  href,
+  variant = "primary",
+  icon = "arrow",
+  class: className = "",
+  ...rest
+} = Astro.props;
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 ease-out";
@@ -24,7 +34,7 @@ const variants: Record<Variant, string> = {
 const Tag = href ? "a" : "button";
 ---
 
-<Tag href={href} class={`${base} ${variants[variant]} ${className}`}>
+<Tag href={href} class={`${base} ${variants[variant]} ${className}`} {...rest}>
   <slot />
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +47,17 @@ const Tag = href ? "a" : "button";
     class="size-4"
     aria-hidden="true"
   >
-    <line x1="5" y1="12" x2="19" y2="12"></line>
-    <polyline points="12 5 19 12 12 19"></polyline>
+    {icon === "download" ? (
+      <>
+        <path d="M12 4v12" />
+        <polyline points="6 11 12 17 18 11" />
+        <path d="M5 20h14" />
+      </>
+    ) : (
+      <>
+        <line x1="5" y1="12" x2="19" y2="12" />
+        <polyline points="12 5 19 12 12 19" />
+      </>
+    )}
   </svg>
 </Tag>
